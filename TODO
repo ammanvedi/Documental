@@ -1,0 +1,18 @@
+— set type defaults 
+
+	we know configs are objects 
+	$container is a DOM Object
+
+set a jsdoc regexp
+	- look into json regexp format 
+
+get valid jsdoc tags and compare to tag names in array
+
+generate @constructor definitions if not present
+generate stub docs for generation and replace bum comments
+	indicate in docs if there was a bad comment or no comment
+
+constructor situations
+	identify assignments to constructor generate appropriate comments
+PULSE.CLIENT.RUGBY.MC.Insights.MatchTeamsInAttackCard.prototype.constructor = PULSE.CLIENT.RUGBY.MC.Insights.MatchTeamsInAttackCard;
+
