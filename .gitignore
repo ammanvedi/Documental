@@ -7,6 +7,6 @@ src/doc-app/design/
 src/Gulp/node_modules/*
 !src/doc-app/node_modules/Documental/index.js
 !src/doc-app/node_modules/Documental/package.json
-!src/doc-app/node_modules/Documental/doc-app/
+!src/Gulp/node_modules/Documental/doc-app/
 src/Gulp/repo-shadow/
 src/doc-app/dist/
