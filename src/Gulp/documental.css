@@ -1,0 +1,50 @@
+#sidebarlist{
+    float:left;
+
+}
+#sidebar
+{
+    background-color: #007dcf;
+    height: 100%;
+    min-width: 30%;
+    max-width: 40%;
+    float: left;
+    overflow-x: scroll;
+}
+html, body{
+    margin:0px;
+    height: 100%;
+
+}
+#content{
+    width: 50%;
+    float:left;
+
+}
+
+#sidebarlist li{
+    margin-bottom: 5px;
+    margin-top: 5px;
+    font-size: 15px;
+}
+
+.content_box
+{
+    float: left;
+    width: 70%;
+}
+
+#contentholder{
+    width: 50%;
+    float:left;
+    overflow:scroll;
+    height: 600px;
+
+
+}
+
+#contentholder pre{
+
+    height: 100%;
+
+}
