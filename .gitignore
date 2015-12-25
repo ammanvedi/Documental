@@ -6,3 +6,4 @@ src/doc-app/semantic/
 src/doc-app/design/
 src/Gulp/node_modules/
 src/Gulp/repo-shadow/
+src/doc-app/dist/
