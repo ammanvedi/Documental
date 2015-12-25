@@ -1,8 +1,0 @@
-    //  '../../../irb-web/**/*.js'
-    //  '../../../irb-web/widgets/archive-pools/src/js/Main.js'
-    // common/src/lib/graphing/Graph.js
-    // '../../../irb-web/common/src/lib/graphing/Graph.js'
-    // ../../../irb-web/common/src/js/ObjectCreatePolyfill.js
-    // ../../../irb-web/common/src/lib/tennis/graph/DrawCanvas.js
-    // common/src/lib/common/koViewModels/cricket/MatchScheduleFilter.js
-    // '../../../irb-web/common/src/lib/common/koViewModels/cricket/MatchScheduleFilter.js'
