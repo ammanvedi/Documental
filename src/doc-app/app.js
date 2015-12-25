@@ -1,3 +1,14 @@
-/**
- * Created by ammanvedi on 06/11/2015.
- */
+var app = angular.module( 'PulseDocs', [ 'ngRoute' ] );
+
+app.config( [ '$routeProvider',
+	function ( $routeProvider ) {
+		$routeProvider.
+			when( '/docs/:projectName', {
+				templateUrl: 'partials/doc.html',
+				controller: 'PulseDocController'
+			} ).when( '/', {
+				templateUrl: 'partials/homepage.html',
+				controller: 'HomePageController'
+			} )
+	} ] );
+

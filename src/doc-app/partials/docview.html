@@ -1,0 +1,61 @@
+<div id="contentholder">
+        <div class="ui equal width grid">
+
+                <div class="row">
+                        <div class="sixteen wide column">
+                                <h1 class="ui header">
+                                        <div class="content">
+                                                {{docstructure.title}}
+                                                <div class="sub header">{{docstructure.path}}</div>
+                                        </div>
+
+                                </h1>
+                        </div>
+                        <div class="sixteen wide column">
+                                <p id="apidesc"> {{docstructure.Documentation.description}} </p>
+                        </div>
+
+                </div>
+
+                <div class="row" ng-if="docstructure.Documentation.tags.length > 0">
+
+
+
+                        <div class="sixteen wide column">
+
+
+                                <div class="ui segment">
+                                        <a class="ui blue ribbon label">Parameters</a>
+                                        <table class="ui definition table">
+                                                <thead>
+                                                <tr><th></th>
+                                                        <th>Type</th>
+                                                        <th>Description</th>
+                                                </tr></thead>
+                                                <tbody>
+
+                                                <tr ng-repeat="param in docstructure.Documentation.tags | filter:{ title: 'param' } ">
+                                                        <td >{{param.name}}</td>
+                                                        <td>{{param.type.name}}</td>
+                                                        <td>{{param.description}}</td>
+                                                </tr>
+                                                </tbody>
+                                        </table>
+
+                                </div>
+
+
+                        </div>
+                </div>
+
+
+                <div class="row">
+                        <div class="column">
+                                <div class="ui segment">
+                                        <a class="ui blue ribbon label">Source</a>
+                                        <pre><code></code></pre>
+                                </div>
+                        </div>
+                </div>
+        </div>
+</div>

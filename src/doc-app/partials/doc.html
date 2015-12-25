@@ -1,0 +1,12 @@
+<div ng-controller="PulseDocController" id="PulseDocController">
+
+    <div class="ui left vertical visible wide sidebar" style="overflow:hidden !important;">
+        <search-box pickedresult="chosenpath" projname="projectName" ></search-box>
+        <menu-Tree jsonurl="{{jsonLocation}}" updateselected="check(path)" opensearchres="chosenpath"></menu-Tree>
+    </div>
+
+    <div class="pusher" style="overflow-y: scroll;" >
+        <doc-View docstructure="documentationData"></doc-View>
+    </div>
+
+</div>

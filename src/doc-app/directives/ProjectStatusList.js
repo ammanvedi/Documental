@@ -1,3 +1,16 @@
-/**
- * Created by ammanvedi on 08/11/2015.
- */
+var app = angular.module( 'PulseDocs' );
+
+app.directive( 'projectStatusList', function(){
+
+	return{
+		restrict: 'E',
+		scope:{
+			statuses: "="
+		},
+		link: function( scope, elem, attr )
+		{
+
+		}
+	}
+
+} )

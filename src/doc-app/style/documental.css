@@ -1,0 +1,131 @@
+#sidebarlist{
+    float:left;
+
+}
+
+#navlogo
+{
+    background-image: url("../img/doclogo.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 130px;
+    background-position: center;
+    margin-left: 10px;
+}
+#homepagecontainer{
+    height: 100%;
+    overflow-y: scroll;
+}
+
+#apidesc{
+    margin-top: 10px;
+}
+
+#contentholder > .grid
+{
+    margin-left: 10px;
+}
+
+.ui.sidebar{
+    overflow: hidden !important;
+    background-image: url("../img/stripe.png");
+    background-repeat: no-repeat;
+}
+
+#sidebar
+{
+    background-color:#60728C;
+    display: block !important;
+    position: static;
+    height: 100%;
+    margin-top: 65px;
+    padding-top: 10px;
+    padding-left: 15px;
+
+}
+
+.search > .input
+{
+    width: 80% !important;
+}
+
+.searchboxholder
+{
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+    position:absolute;
+}
+
+.searchboxholder:first-child{
+    display: inline-block;
+}
+
+#navmenu{
+    margin-bottom: 0px !important;
+
+}
+
+html, body{
+    margin:0px;
+    height: 100%;
+
+}
+
+div[ng-view]{
+    height: calc( 100% - 42px ) !important;
+    overflow: hidden;
+}
+
+html{
+    overflow: hidden;
+}
+
+#content{
+    width: 50%;
+
+}
+
+#sidebarlist li{
+    margin-bottom: 5px;
+    margin-top: 5px;
+    font-size: 15px;
+}
+
+.pusher
+{
+    padding: 30px;
+    padding-bottom: 0px;
+    max-width: calc( 100% - 350px );
+    height: calc( 100% - 42px );
+    overflow-y: scroll;
+
+}
+
+doc-view{
+    overflow-y: scroll;
+}
+
+.ui.piled.segment{
+    max-width: 90% !important;
+}
+
+.content_box
+{
+    float: left;
+    width: 70%;
+}
+
+#contentholder{
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+}
+
+#contentholder pre{
+
+    height: 100%;
+
+}

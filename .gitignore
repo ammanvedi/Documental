@@ -1,2 +1,8 @@
 .DS_Store
 src/doc-app/data/
+src/doc-app/lib/
+src/doc-app/node_modules/
+src/doc-app/semantic/
+src/doc-app/design/
+src/Gulp/node_modules/
+src/Gulp/repo-shadow/
