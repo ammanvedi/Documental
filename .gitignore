@@ -5,8 +5,8 @@ src/doc-app/node_modules/
 src/doc-app/semantic/
 src/doc-app/design/
 src/Gulp/node_modules/*
-!src/doc-app/node_modules/Documental/index.js
-!src/doc-app/node_modules/Documental/package.json
+!src/Gulp/node_modules/Documental/index.js
+!src/Gulp/node_modules/Documental/package.json
 !src/Gulp/node_modules/Documental/doc-app/
 src/Gulp/repo-shadow/
 src/doc-app/dist/
