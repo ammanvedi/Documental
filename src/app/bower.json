@@ -1,0 +1,16 @@
+{
+  "name": "Documental Angular App",
+  "version": "0.0.1",
+  "authors": [
+    "Amman Vedi <amman.vedi@gmail.com>"
+  ],
+  "license": "MIT",
+  "directory": "dist/vendor",
+  "dependencies": {
+    "EasyTree": "https://github.com/mattrand/EasyTree.git",
+    "highlight": "https://github.com/isagalaev/highlight.js.git",
+    "angular": "1.4.7",
+    "semantic-ui": "*",
+    "angular-route": "~1.4.8"
+  }
+}
