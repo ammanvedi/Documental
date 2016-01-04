@@ -11,7 +11,7 @@ src/gulp/node_modules/gulp/
 src/gulp/node_modules/gulp-print/
 src/gulp/node_modules/jsdoc/
 src/gulp/test-projects/
-src/gulp/.bin/
+src/gulp/node_modules/.bin/
 src/app/data/
 src/app/dist/
 src/app/design/
