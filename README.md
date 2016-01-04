@@ -2,6 +2,8 @@
 
 ![npm logo](https://badge.fury.io/js/documental.svg)
 
+Please Note: This is currently a work in progress !
+
 
 Documental is a build tool to automatically generate a documentation site from your javascript source code. The aim of documental was not only to allow for easy generation of docs for functions that have them but to also expose the functions that do not have documentation and provide an easy way of searching and navigating at the same time.
 
