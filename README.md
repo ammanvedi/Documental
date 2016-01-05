@@ -59,7 +59,7 @@ below is a simple gulp task that ingests the desired files/directories and then 
 var Documental = require( 'Documental');
 
 gulp.task('docs', function () {
-    gulp.src([ 'test-projects/pulse-js/src/**/*.js']).pipe(Documental());
+    return gulp.src([ 'test-projects/pulse-js/src/**/*.js']).pipe(Documental());
 });
 </code></pre>
 
