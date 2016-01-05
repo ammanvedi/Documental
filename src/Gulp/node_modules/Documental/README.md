@@ -37,7 +37,7 @@ The angular app component of the project is a simple web app that can be used to
 Documental is a Gulp module, so you can install it with npm ( without cloning this repo ) ...
 <pre><code>npm install documental --save-dev</code></pre>
 and use the generation module in your gulp build like so...
-<pre><code>var Documental = require('Documental' ).Documental;</code></pre>
+<pre><code>var Documental = require('Documental' )</code></pre>
 
 #### Configuration
 A configuration file **documental.config.json** should be placed alongside the gulp file that you use to build your project.
@@ -55,14 +55,11 @@ this configuration is required should you decide to use the bundled angular app 
 #### Run the generation
 below is a simple gulp task that ingests the desired files/directories and then generates documentation JSON
 
-<pre><code>gulp.task('docs', function () {
-    gulp.src([ '../../../pulse-js/src/**/*.js'])
+<pre><code>var gulp = require('gulp');
+var Documental = require( 'Documental');
 
-        //ingest the file into the documental instance
-        .pipe(Documental.utilities.ingest())
-
-        //when all files finished output the JSON
-        .on( 'finish', function(){Documental.utilities.exportDataToJSON();});
+gulp.task('docs', function () {
+    gulp.src([ 'test-projects/pulse-js/src/**/*.js']).pipe(Documental());
 });
 </code></pre>
 
