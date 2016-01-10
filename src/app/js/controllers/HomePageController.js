@@ -4,11 +4,4 @@ app.controller( 'HomePageController', [ '$scope', 'docDataService', function( $s
 
 	$scope.statusList = {};
 
-	dataService.testprivate();
-	dataService.getProjectsConfig(function(data){
-		console.log(data);
-	});
-
-	console.log("ajajajaja");
-
 } ] );

@@ -3,7 +3,6 @@ var app = angular.module( 'PulseDocs' );
 app.controller( 'PulseDocController', [ '$scope', '$routeParams', function ( $scope, $routeParams ) {
 	// we control our app from here
 
-	console.log(" route ", $routeParams);
 
 	$scope.JSONDATA = {};
 	$scope.nodeselected = {};
@@ -22,7 +21,6 @@ app.controller( 'PulseDocController', [ '$scope', '$routeParams', function ( $sc
 	} );
 
 	$scope.$watch( 'chosenpath', function ( val ) {
-		console.log( ' path update ', val );
 		if( val && val.n  ) {
 			$scope.check( val.n, true );
 		}
@@ -45,9 +43,6 @@ app.controller( 'PulseDocController', [ '$scope', '$routeParams', function ( $sc
 
 	$scope.check = function ( path, fromsearch ) {
 
-		//console.log( "CALL", path );
-
-
 		var found = $scope.findObjByPath( $scope.JSONDATA, path );
 		if ( found != undefined && found[ "Documentation" ] ) {
 			var txt = JSON.stringify( found[ "Documentation" ], null, "    " );
@@ -60,7 +55,6 @@ app.controller( 'PulseDocController', [ '$scope', '$routeParams', function ( $sc
 				$scope.$apply();
 			}
 
-			console.log( 'pulsecontroller observed change : ', $scope );
 		}
 	}
 

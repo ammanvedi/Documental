@@ -16,3 +16,4 @@ src/app/data/
 src/app/dist/
 src/app/design/
 src/app/node_modules/
+src/gulp/node_modules/documental/npm-debug.log
