@@ -76,7 +76,7 @@ This JSON file contains pairs of namespaced function names alongside their more 
 **menuTree.json**
 A menu tree is also generated, levels and nesting are decided by the namespacing of functions.
 
-within the the Angular app [EasyTree](http://www.easyjstree.com/) is being used currently to generate the tree view of the source, the format of this tree follows the easytree format.
+within the the Angular app a slightly changed version of [EasyTree](http://www.easyjstree.com/) is being used ( fork at [my github](https://github.com/ammanvedi/EasyTree.git) ) currently to generate the tree view of the source, the format of this tree follows the easytree format.
 
 **sourcemap.json**
 The main meat of the operation is located in the sourcemap. This contains the source code of each function as well as other neccacary properties such as its namespace and any associated JSDoc tags.
