@@ -23,7 +23,7 @@ gulp.task('html', function() {
 gulp.task('data', function() {
 	return gulp.src('./data/*')
 		.pipe(gulp.dest('./dist/data/'));
-}); 
+});
 
 gulp.task('index', function() {
 	return gulp.src('./html/index.html')
