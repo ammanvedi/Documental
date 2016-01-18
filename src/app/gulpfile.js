@@ -21,9 +21,9 @@ gulp.task('html', function() {
 
 
 gulp.task('data', function() {
-	return gulp.src('./data/*.json')
+	return gulp.src('./data/*')
 		.pipe(gulp.dest('./dist/data/'));
-});
+}); 
 
 gulp.task('index', function() {
 	return gulp.src('./html/index.html')
@@ -41,6 +41,12 @@ gulp.task( 'npm-build', function() {
 
 } );
 
+gulp.task( 'npm-build-data', function() {
+	return gulp.src( [ './dist/data/data-goes-here.txt' ] )
+		.pipe( gulp.dest( '../gulp/node_modules/documental/app/dist/data' ) )
+
+} );
+
 gulp.task( 'npm-move-bower', function() {
 	return gulp.src( [ './bower.json', './.bowerrc' ] )
 		.pipe( gulp.dest( '../gulp/node_modules/documental/app/' ) )
@@ -48,4 +54,4 @@ gulp.task( 'npm-move-bower', function() {
 
 
 gulp.task('default', [ 'scripts', 'style', 'html', 'index', 'data', 'img' ] );
-gulp.task( 'build-dist', [ 'default', 'npm-build', 'npm-move-bower' ] );
+gulp.task( 'build-dist', [ 'default', 'npm-build', 'npm-move-bower', 'npm-build-data' ] );
