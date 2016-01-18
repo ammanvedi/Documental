@@ -3,10 +3,12 @@
   "version": "0.0.1",
   "description": "A documentation auto generator.",
   "author": "Amman Vedi <amman.vedi@pulselive.com>",
-  "contributors": [{
-    "name": "Amman Vedi",
-    "email": "amman.vedi@pulselive.com"
-  }],
+  "contributors": [
+    {
+      "name": "Amman Vedi",
+      "email": "amman.vedi@pulselive.com"
+    }
+  ],
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -29,5 +31,7 @@
   "publishConfig": {
     "registry": "https://your-private-hosted-npm.registry.nodejitsu.com"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+  }
 }
