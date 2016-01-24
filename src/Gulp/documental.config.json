@@ -1,4 +1,5 @@
 {
-  "projectName": "plw",
-  "useApp": true
+  "projectName": "premier-league-web",
+  "useApp" : true,
+  "liveLoad" : true
 }
