@@ -4,8 +4,7 @@ src/gulp/node_modules/*
 !src/gulp/node_modules/documental/index.js
 !src/gulp/node_modules/documental/package.json
 !src/gulp/node_modules/documental/README.md
-!src/gulp/node_modules/documental/src/**/*
-
+!src/gulp/node_modules/documental/src/**/*.js
 
 
 src/gulp/test-projects/
