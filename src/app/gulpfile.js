@@ -37,19 +37,19 @@ gulp.task('img', function() {
 
 gulp.task( 'npm-build', function() {
 	return gulp.src( [ './dist/**/*', '!./dist/vendor/**/*', '!./dist/data/**/*' ] )
-		.pipe( gulp.dest( '../gulp/node_modules/documental/app/dist' ) )
+		.pipe( gulp.dest( '../gulp_module/node_modules/documental/app/dist' ) )
 
 } );
 
 gulp.task( 'npm-build-data', function() {
 	return gulp.src( [ './dist/data/data-goes-here.txt' ] )
-		.pipe( gulp.dest( '../gulp/node_modules/documental/app/dist/data' ) )
+		.pipe( gulp.dest( '../gulp_module/node_modules/documental/app/dist/data' ) )
 
 } );
 
 gulp.task( 'npm-move-bower', function() {
 	return gulp.src( [ './bower.json', './.bowerrc' ] )
-		.pipe( gulp.dest( '../gulp/node_modules/documental/app/' ) )
+		.pipe( gulp.dest( '../gulp_module/node_modules/documental/app/' ) )
 } );
 
 
