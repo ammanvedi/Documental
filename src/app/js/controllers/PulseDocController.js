@@ -55,8 +55,13 @@ app.controller( 'PulseDocController', [ '$scope', '$routeParams', function ( $sc
 				$scope.$apply();
 			}
 
+		} else {
+			console.log( 'no doc to show' );
+			$scope.documentationData = false;
+			$scope.$apply();
+
 		}
-	}
+	};
 
 
 	$scope.jsonLocation = 'data/' + $scope.projectName +'-menuTree.json';

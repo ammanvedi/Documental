@@ -15,8 +15,24 @@ app.directive( "docView", function () {
 					console.log( 'docview observed change : ', scope );
 					$('pre code' ).text(scope.docstructure.Source);
 					hljs.highlightBlock($('pre code')[0]);
+				} else {
+					console.log( "NO DOCS DATA" );
 				}
+
+				if( !scope.docstructure ) {
+					console.log( "NO DOCS DATA" );
+					element.hide();
+				} else {
+					console.log( 'view has docs data', scope.docstructure );
+					element.show();
+				}
+
 			}, true );
+
+			if( !scope.docstructure ) {
+				console.log( "NO DOCS DATA" );
+			}
+
 		},
 		templateUrl: 'partials/docview.html',
 		controller: 'PulseDocController'
