@@ -1,5 +1,8 @@
 {
   "projectName": "premier-league-web",
   "useApp" : true,
-  "liveLoad" : true
+  "liveLoad" : true,
+  "readme" : "./test-projects/premier-league-web/README.md",
+  "verbose": false,
+  "port": 8090
 }
