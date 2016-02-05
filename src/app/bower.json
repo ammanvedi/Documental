@@ -11,6 +11,6 @@
     "highlight": "https://github.com/isagalaev/highlight.js.git",
     "angular": "1.4.8",
     "semantic-ui": "*",
-    "angular-route": "~1.4.8"
+    "angular-route": "1.4.8"
   }
 }
