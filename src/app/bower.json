@@ -8,7 +8,7 @@
   "directory": "dist/vendor",
   "dependencies": {
     "EasyTree": "https://github.com/ammanvedi/EasyTree.git#d8eae17",
-    "highlight": "https://github.com/isagalaev/highlight.js.git",
+    "prism": "*",
     "angular": "1.4.8",
     "semantic-ui": "*",
     "angular-route": "1.4.8"
