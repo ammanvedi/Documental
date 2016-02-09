@@ -12,9 +12,72 @@
     background-position: center;
     margin-left: 10px;
 }
+
+#navnpm
+{
+    background-image: url("https://badge.fury.io/js/documental.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 130px;
+    background-position: center;
+    margin-left: 10px;
+}
+#navgit
+{
+    background-image: url("https://img.shields.io/badge/source-github-blue.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 95px;
+    background-position: center;
+    margin-left: 10px;
+}
+
+.easytree-container {
+    background-color: #344052;
+    border: none !important;
+    color: #fff;
+}
+
 #homepagecontainer{
     height: 100%;
     overflow-y: scroll;
+}
+
+.easytree-active .easytree-title {
+background-color: #000 !important;
+}
+
+.easytree-title {
+    color: #fff !important;
+}
+
+.easytree-expander {
+
+}
+
+#paramsTable tbody:empty {
+    display: none;
+}
+
+#propertiesTable tbody:empty {
+    display: none;
+}
+
+.easytree-active .easytree-title::before {
+    pointer-events: none;
+    content: "";
+    display: block;
+    position: absolute;
+    width: 300%;
+    background-color: #000;
+    height: 20px;
+    left: -100px;
+    z-index: 8;
+    opacity: 0.3;
+}
+
+doc-view code {
+    font-size: 10px;
 }
 
 #apidesc{
@@ -34,7 +97,7 @@
 
 #sidebar
 {
-    background-color:#60728C;
+    background-color: #344052;
     display: block !important;
     position: static;
     height: 100%;
@@ -129,3 +192,16 @@ doc-view{
     height: 100%;
 
 }
+
+.ui.menu {
+    margin-top: 0px !important;
+    border-radius: 0px !important;
+    background-color: #344052 !important;
+    height: 65px !important;
+}
+
+li[data-path] span.easytree-icon{
+    display: none;
+}
+
+
