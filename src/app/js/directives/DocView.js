@@ -1,6 +1,6 @@
 var app = angular.module( "PulseDocs" );
 
-app.directive( "docView", function () {
+app.directive( "docView", [ 'typeParserService', function ( typeParserService ) {
 
 
 	return {
@@ -10,11 +10,14 @@ app.directive( "docView", function () {
 		},
 		link: function ( scope, element, attribute ) {
 
+			scope.parseType = typeParserService;
+
 			scope.$watch( 'docstructure', function ( obj ) {
 				if( scope.docstructure && scope.docstructure.Source ) {
 					console.log( 'docview observed change : ', scope );
 					$('pre code' ).text(scope.docstructure.Source);
-					hljs.highlightBlock($('pre code')[0]);
+					//hljs.highlightBlock($('pre code')[0]);
+					Prism.highlightElement($('pre code')[0], true, function(){})
 				} else {
 					console.log( "NO DOCS DATA" );
 				}
@@ -38,4 +41,4 @@ app.directive( "docView", function () {
 		controller: 'PulseDocController'
 	}
 
-} );
+}  ] );
