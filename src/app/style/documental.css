@@ -137,7 +137,7 @@ html, body{
 }
 
 div[ng-view]{
-    height: calc( 100% - 42px ) !important;
+    height: calc( 100% - 65px ) !important;
     overflow: hidden;
 }
 

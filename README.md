@@ -7,6 +7,11 @@ Please Note: This is currently a work in progress !
 
 Documental is a build tool to automatically generate a documentation site from your javascript source code. The aim of documental was not only to allow for easy generation of docs for functions that have them but to also expose the functions that do not have documentation and provide an easy way of searching and navigating at the same time.
 
+# Contents
+1. [Usage](#usage)
+2. [Development](#development)
+3. [Angular App](#angularapp)
+
 ## Nuts & Bolts
 The project is made up of two ( separable ) parts;
 
@@ -32,6 +37,7 @@ The angular app component of the project is a simple web app that can be used to
 * Tree view code navigation based on function namespace
 * Project readme display
 
+<div id='usage'/>
 ## Usage
 ### Node Module
 Documental is a Gulp module, so you can install it with npm ( without cloning this repo ) ...
@@ -39,18 +45,6 @@ Documental is a Gulp module, so you can install it with npm ( without cloning th
 and use the generation module in your gulp build like so...
 <pre><code>var Documental = require('Documental' )</code></pre>
 
-#### Configuration
-A configuration file **documental.config.json** should be placed alongside the gulp file that you use to build your project.
-
-just a couple of configuration items are needed for the module to get going, the minimal configuration object provides the following;
-
-<pre><code>{
-	projectName: "My-Application",
-	jsonLocation: "/path/to/json/out"
-}
-</code></pre>
-
-this configuration is required should you decide to use the bundled angular app to display your docs. At the very least an output location should be provided.
 
 #### Run the generation
 below is a simple gulp task that ingests the desired files/directories and then generates documentation JSON
@@ -62,6 +56,50 @@ gulp.task('docs', function () {
     return gulp.src([ 'test-projects/pulse-js/src/**/*.js']).pipe(Documental());
 });
 </code></pre>
+
+#### Options
+`--ftp` however you decide to include the call to documental in your build you can pass this CLI flag into the task ( e.g. `gulp docs --ftp` ) which will initiate an ftp upload as well as building the docs.
+
+#### Configuration
+A configuration file **documental.config.json** should be placed alongside the gulp file that you use to build your project.
+
+just a couple of configuration items are needed for the module to get going, the minimal configuration object provides the following;
+
+<pre><code>{
+  "projectName": "My Project",
+  "useApp" : true,
+  "liveLoad" : false,
+  "readme" : "./path/to/readme.md",
+  "jsonOutput": "/outpath",
+  "verbose": false,
+  "port": 8090,
+  "ftp": {
+    "location" : "/mnt/data",
+    "htmlLocation": "/mnt/cdn/test/amman/docs/partials",
+    "server" : "host.com",
+    "username": "usr",
+    "password": "pass"
+  },
+  "ftpAuto" : false
+}
+</code></pre>
+
+this configuration is required should you decide to use the bundled angular app to display your docs. At the very least an output location should be provided.
+
+|   Property	|   Description	| 
+|---	|---	|---	|
+|   projectName	|   what to refer to the project as, this is used in generation of the menu trees	|  
+|   useApp	|   weather to use the bundled angular app	|   
+|   liveLoad	|   launch the documentation app in a browser automatically	|   
+|   readme	|   path to a readme file ( relavant if using the bundles angular app, relative to gulpfile )	|  
+|   jsonOutput	|   location where json files should be output ( relative to giulpfile )	|   
+|   verbose	|   show extended logging information	|  
+|   port	|   if launching the angular app, which port should we create a server on (default 3000)	|  
+|   ftp	|   basic ftp information	|  
+|   ftp.location	|   location on server where json files should be put ( absolute )	|   
+|   ftp.htmllocation	|   location on server where html generated from readme should be put ( absolute )	|  
+|   ftpAuto	|   automatically deploy the files to ftp on every build	|  
+
 
 #### The Output
 Documental outputs three JSON files each with a specific function that will be useful weather the bundled angular app is used or not;
@@ -83,21 +121,80 @@ The main meat of the operation is located in the sourcemap. This contains the so
 
 These files can now be consumed however you choose!
 
-### Angular App
+<div id='development'/>
+#### Development
 
-First grab the project dependancies using bower and npm;
-<pre><code>user# cd src/app/
-user# bower install
-...
+build the gulp module from source
+
+<pre><code>user# cd src/gulp_module/
 user# npm install
+
+user# cd node_modules/documental/src
+user# gulp
 ...
 </code></pre>
+
+you can now adjust gulp-module/gulpfile.js to point to the desired files and run the documentation task. Note; if you want to use the app when building from source, make sure you have built this also. The process is outlined below.
+
+##### Source Structure
+
+First grab the project dependancies using bower and npm;
+<pre><code>
++- documental
+|-- src
+|--- core 
+|---- appBuilder
+|---- utils
+|----- Util Functions 
+|---- core.js
+|---- export.js
+|
+|--- parser
+|---- plugins
+|----- Plugin Files
+|---- parser.js
+|--- gulpfile.js 
+</code></pre>
+
+The first point of call in extending the basic functionality of documental is from the plugins aplugin takes a SpiderMonkey AST node and returns an object in the following standard ( or false )
+
+<pre><code>
+{
+	"sourceStart": {SpiderMonkey Location Object},
+	"sourceStop" : {SpiderMonkey Location Object},
+	"rightside" : {SpiderMonkey Function Node },
+	// common name for the application property
+	"terminal" : {string},
+	// full name for the application property ( can be namespaced e.g. "app.foo.bar" )
+	"name" : {string}
+}
+</code></pre>
+
+these are returned to the parser which will then integrate the data into the menu / sourcemap / autocomplete files. Adding another layer in the parsing is as simple as creating a new source file and extending the documentalCore.plugins object with a function, having the signiture;
+<pre><code>Plugins.newplugin = function( node ) { ... }</code></pre>
+
+examples can be found in the already existing plugins.
+
+
+<div id='angularapp'/>
+### Angular App
+
+
 
 build the app code with gulp
 <pre><code>user# gulp
 </code></pre>
+The app will be built to the dist/ directory, JSON generated from the node module can be placed in the dist/data directory
 
-The app will be built to the dist/ directory, JSON generated from the node moduke can be placed in the dist/data directory
+build the app code to the gulp module directory ( source ) 
+<pre><code>user# gulp build-dist
+</code></pre>
+
+build the app code to a ftp location, defined in app/ftp.config.json
+<pre><code>user# gulp deploy
+</code></pre>
+
+
 
 #### Adding Documentation
 The app/dist/data/ directory is where the app will look for the three JSON files generated by the node module. These files should be placed here ( this location can be placed in the documental.config.json if desired )

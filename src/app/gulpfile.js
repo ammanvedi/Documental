@@ -1,6 +1,11 @@
 var gulp = require('gulp');
 var concat = require('gulp-concat');
 
+var ftp = require('vinyl-ftp');
+var fs = require('vinyl-fs');
+
+var ftpConfig = require('./ftp.config.json');
+
 gulp.task('scripts', function() {
 	return gulp.src('./js/**/*.js')
 		.pipe(concat('docapp.js'))
@@ -19,6 +24,30 @@ gulp.task('html', function() {
 		.pipe(gulp.dest('./dist/partials/'));
 });
 
+gulp.task( 'deploy', function() {
+
+	if( ftpConfig ) {
+
+		var src;
+
+		if( process.argv.indexOf( "--no-bower" ) === -1 ) {
+			src = "./dist/**/*"
+		} else {
+			src = "./dist/!(vendor)*/*"
+		}
+
+		var conn = ftp.create( {
+			host: ftpConfig.server,
+			user: ftpConfig.username,
+			password: ftpConfig.password,
+			parallel: 10,
+			log: console.log
+		} );
+		return gulp.src( src )
+			.pipe( conn.newer( ftpConfig.location ) )
+			.pipe( conn.dest( ftpConfig.location ) );
+	}
+} );
 
 gulp.task('data', function() {
 	return gulp.src('./data/*')

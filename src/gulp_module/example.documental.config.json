@@ -1,0 +1,17 @@
+{
+  "projectName": "My Project",
+  "useApp" : true,
+  "liveLoad" : false,
+  "readme" : "./path/to/readme.md",
+  "jsonOutput": "/outpath",
+  "verbose": false,
+  "port": 8090,
+  "ftp": {
+    "location" : "/mnt/data",
+    "htmlLocation": "/mnt/cdn/test/amman/docs/partials",
+    "server" : "host.com",
+    "username": "usr",
+    "password": "pass"
+  },
+  "ftpAuto" : false
+}

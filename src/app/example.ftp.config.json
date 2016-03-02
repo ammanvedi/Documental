@@ -1,0 +1,6 @@
+{
+  "location" : "/mnt/location",
+  "server" : "host.com",
+  "username": "user",
+  "password": "pass"
+}

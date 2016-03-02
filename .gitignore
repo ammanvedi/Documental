@@ -1,3 +1,5 @@
+/src/gulp_module/documental.config.json
+/src/app/ftp.config.json
 .DS_Store
 
 src/gulp_module/node_modules/*
