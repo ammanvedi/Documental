@@ -31,9 +31,9 @@ gulp.task( 'deploy', function() {
 		var src;
 
 		if( process.argv.indexOf( "--no-bower" ) === -1 ) {
-			src = "./dist/**/*"
+			src = [ "./dist/**/*", "./dist/index.html" ]
 		} else {
-			src = "./dist/!(vendor)*/*"
+			src = [ "./dist/!(vendor)*/*", "./dist/index.html" ]
 		}
 
 		var conn = ftp.create( {
@@ -76,6 +76,12 @@ gulp.task( 'npm-build-data', function() {
 
 } );
 
+gulp.task( 'npm-build-data-dirty', function() {
+	return gulp.src( [ './dist/data/**/*' ] )
+		.pipe( gulp.dest( '../gulp_module/node_modules/documental/app/dist/data' ) )
+
+} );
+
 gulp.task( 'npm-move-bower', function() {
 	return gulp.src( [ './bower.json', './.bowerrc' ] )
 		.pipe( gulp.dest( '../gulp_module/node_modules/documental/app/' ) )
@@ -83,4 +89,4 @@ gulp.task( 'npm-move-bower', function() {
 
 
 gulp.task('default', [ 'scripts', 'style', 'html', 'index', 'data', 'img' ] );
-gulp.task( 'build-dist', [ 'default', 'npm-build', 'npm-move-bower', 'npm-build-data' ] );
+gulp.task( 'build-dist', [ 'default', 'npm-build', 'npm-move-bower', 'npm-build-data-dirty' ] );
