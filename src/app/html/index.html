@@ -3,6 +3,14 @@
 <head>
     <meta charset="utf-8">
     <title>Documental</title>
+
+    <script>
+        var baseEl = document.createElement( 'base' );
+        baseEl.setAttribute( "href", window.location.pathname );
+        document.querySelector( "head" ).appendChild( baseEl );
+    </script>
+
+
     <link rel="stylesheet" type="text/css" href="vendor/EasyTree/skin-lion/ui.easytree.css"/>
     <link rel="stylesheet" type="text/css" href="style/docapp.css"/>
     <link rel="stylesheet" type="text/css" href="vendor/semantic-ui/dist/semantic.min.css">
