@@ -9,8 +9,11 @@ app.directive( 'projectStatusList', function(){
 		},
 		link: function( scope, elem, attr )
 		{
-
-		}
+			scope.$watch('statuses', function(newValue, oldValue) {
+				console.log( newValue, oldValue )
+			});
+		},
+		templateUrl: "partials/projectstatuslist.html"
 	}
 
-} )
+} );
