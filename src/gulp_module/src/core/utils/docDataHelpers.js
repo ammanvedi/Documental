@@ -224,12 +224,16 @@
 
 ( function( Utils, State ) {
 
-	Utils.typedefParser = function( text ) {
+	Utils.typedefParser = function( text, start ) {
 
 		var td = doctrine.parse( text, { unwrap: true } );
 
 		if( td ) {
-			Utils.addMemberToSourceMap( State.sourceMap, "typedefs." + td.tags[ 0 ].name.replace( " ", "" ), td, text );
+
+			var fpath = State.file.path.split( "/" );
+			var filenamed = fpath[ fpath.length - 1  ] ;
+
+			Utils.addMemberToSourceMap( State.sourceMap, "typedefs." + td.tags[ 0 ].name.replace( " ", "" ), td, text, filenamed, start );
 			State.autocomplete.push( { n: "typedefs." + td.tags[ 0 ].name.replace( " ", "" ), t: td.tags[ 0 ].name.replace( " ", "" ) } );
 		}
 
@@ -259,7 +263,7 @@
 
 			if( text.indexOf( "@typedef" ) >= 0  ) {
 
-				Utils.typedefParser( text );
+				Utils.typedefParser( text, startloc );
 				return;
 			}
 

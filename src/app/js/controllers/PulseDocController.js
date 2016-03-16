@@ -9,6 +9,7 @@ app.controller( 'PulseDocController', [ '$scope', '$routeParams', function ( $sc
 	$scope.documentationData = undefined;
 	$scope.chosenpath = undefined;
 	$scope.projectName = $routeParams.projectName;
+	$scope.waiting = false;
 
 	$.ajax( {
 		dataType: "json",
@@ -16,6 +17,10 @@ app.controller( 'PulseDocController', [ '$scope', '$routeParams', function ( $sc
 		success: function ( data ) {
 			//console.log(data);
 			$scope.JSONDATA = data;
+
+			if( $scope.waiting ) {
+				$scope.check( $scope.waiting );
+			}
 
 		}
 	} );
@@ -43,24 +48,29 @@ app.controller( 'PulseDocController', [ '$scope', '$routeParams', function ( $sc
 
 	$scope.check = function ( path, fromsearch ) {
 
-		var found = $scope.findObjByPath( $scope.JSONDATA, path );
-		if ( found != undefined && found[ "Documentation" ] ) {
-			var txt = JSON.stringify( found[ "Documentation" ], null, "    " );
-			$scope.documentationData = found;
-			$scope.documentationData.path = path;
-			$scope.documentationData.title = path.split( "." )[ path.split( "." ).length-1 ];
+
+			if ( Object.keys( $scope.JSONDATA ).length ) {
+				var found = $scope.findObjByPath( $scope.JSONDATA, path );
+				if ( found != undefined && found[ "Documentation" ] ) {
+				var txt = JSON.stringify( found[ "Documentation" ], null, "    " );
+				$scope.documentationData = found;
+				$scope.documentationData.path = path;
+				$scope.documentationData.title = path.split( "." )[ path.split( "." ).length-1 ];
 
 
-			if ( !fromsearch ) {
-				$scope.$apply();
+				if ( !fromsearch ) {
+					$scope.$apply();
+				}
+				} else {
+					console.log( 'no doc to show' );
+					$scope.documentationData = false;
+					$scope.$apply();
+
+				}
+			} else {
+				$scope.waiting = path;
 			}
 
-		} else {
-			console.log( 'no doc to show' );
-			$scope.documentationData = false;
-			$scope.$apply();
-
-		}
 	};
 
 

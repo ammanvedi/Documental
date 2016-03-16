@@ -5,7 +5,8 @@ app.config( [ '$routeProvider',
 		$routeProvider.
 			when( '/docs/:projectName', {
 				templateUrl: 'partials/doc.html',
-				controller: 'PulseDocController'
+				controller: 'PulseDocController',
+				reloadOnSearch: false
 			} ).when( '/', {
 				templateUrl: 'partials/homepage.html',
 				controller: 'HomePageController'

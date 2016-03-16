@@ -1,24 +1,43 @@
 <div id="contentholder">
     <div class="ui equal width grid">
         <div class="row">
-            <div class="sixteen wide column">
+            <div class="column">
                 <h1 class="ui header">
                     <div class="content">
                         {{docstructure.title}}
+
+                        <a class="ui olive label constructorTag" ng-if="( docstructure.Documentation.tags | filter:{ title: 'constructor' } ).length > 0">
+                            Constructor
+                        </a>
+
                         <div class="sub header">{{docstructure.path}}</div>
                     </div>
                 </h1>
             </div>
-            <div class="sixteen wide column">
-                <pre id="apidesc"> {{docstructure.Documentation.description}} </pre>
+            <div class="ui vertical divider">
+                <i class="long arrow right icon"></i>
+            </div>
+            <div class="left aligned column" ng-if="( docstructure.Documentation.tags | filter:{ title: 'returns' } )[0]">
+
+                <p ng-if="( docstructure.Documentation.tags | filter:{ title: 'returns' } )[0]">
+                    {{parseType( ( docstructure.Documentation.tags | filter:{ title: 'returns' } )[0].type )}}
+                </p>
+                <h5 style="margin-top: -9px;" ng-if="( docstructure.Documentation.tags | filter:{ title: 'returns' } )[0]">
+                    {{( docstructure.Documentation.tags | filter:{ title: 'returns' } )[0].description }}
+                </h5>
+
             </div>
         </div>
 
+        <div class="sixteen wide column">
+            <pre id="apidesc"> {{docstructure.Documentation.description}} </pre>
+        </div>
+
         <div class="row" ng-if="( docstructure.Documentation.tags | filter:{ title: 'param' } ).length > 0">
+            <h3 class="ui dividing header" style="width: 100%;">Parameters<a class="anchor" id="content"></a></h3>
             <div class="sixteen wide column">
-                <div class="ui segment">
-                    <a class="ui blue ribbon label">Parameters</a>
-                    <table class="ui definition table" id="paramsTable">
+                <div class="ui basic segment">
+                    <table class="ui very basic table" id="paramsTable">
                         <thead>
                         <tr>
                             <th></th>
@@ -39,10 +58,10 @@
         </div>
 
         <div class="row" ng-if="( docstructure.Documentation.tags | filter:{ title: 'property' } ).length > 0">
+            <h3 class="ui dividing header" style="width: 100%;">Properties<a class="anchor" id="content"></a></h3>
             <div class="sixteen wide column">
-                <div class="ui segment">
-                    <a class="ui blue ribbon label">Parameters</a>
-                    <table class="ui definition table" id="propertiesTable">
+                <div class="ui basic segment">
+                    <table class="ui very basic table" id="propertiesTable">
                         <thead>
                         <tr>
                             <th></th>
@@ -64,9 +83,9 @@
 
 
         <div class="row">
+            <h3 class="ui dividing header" style="width: 100%;">Source<a class="anchor" id="content"></a></h3>
             <div class="column">
-                <div class="ui segment">
-                    <a class="ui blue ribbon label">Source</a>
+                <div class="ui basic segment">
                     <pre><code class="language-javascript"></code></pre>
                 </div>
             </div>

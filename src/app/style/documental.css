@@ -5,6 +5,7 @@
 
 #navlogo
 {
+    -webkit-filter: invert(75%);
     background-image: url("../img/doclogo.png");
     background-repeat: no-repeat;
     background-size: contain;
@@ -33,7 +34,7 @@
 }
 
 .easytree-container {
-    background-color: #344052;
+    background-color: transparent;
     border: none !important;
     color: #fff;
 }
@@ -44,11 +45,12 @@
 }
 
 .easytree-active .easytree-title {
-background-color: #000 !important;
+ font-weight: bold;
+    background-color: transparent !important;
 }
 
 .easytree-title {
-    color: #fff !important;
+    color: #000 !important;
 }
 
 .easytree-expander {
@@ -63,18 +65,7 @@ background-color: #000 !important;
     display: none;
 }
 
-.easytree-active .easytree-title::before {
-    pointer-events: none;
-    content: "";
-    display: block;
-    position: absolute;
-    width: 300%;
-    background-color: #000;
-    height: 20px;
-    left: -100px;
-    z-index: 8;
-    opacity: 0.3;
-}
+
 
 doc-view code {
     font-size: 10px;
@@ -97,7 +88,6 @@ doc-view code {
 
 #sidebar
 {
-    background-color: #344052;
     display: block !important;
     position: static;
     height: 100%;
@@ -137,7 +127,7 @@ html, body{
 }
 
 div[ng-view]{
-    height: calc( 100% - 65px ) !important;
+    height: 100vh;
     overflow: hidden;
 }
 
@@ -174,6 +164,7 @@ doc-view{
     max-width: 90% !important;
 }
 
+
 .content_box
 {
     float: left;
@@ -196,7 +187,7 @@ doc-view{
 .ui.menu {
     margin-top: 0px !important;
     border-radius: 0px !important;
-    background-color: #344052 !important;
+    background-color: #fff !important;
     height: 65px !important;
 }
 

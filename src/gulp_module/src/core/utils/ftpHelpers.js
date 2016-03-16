@@ -1,5 +1,5 @@
 
-( function( Utils, State, Config, vftp, fs, map, Gfile ) {
+( function( Utils, State, Config, vftp, fs, map, Gfile, del ) {
 
 
 	Utils.ftp = {};
@@ -43,7 +43,11 @@
 		}
 
 		if( glob ) {
-			fs.src( glob, { buffer: false } ).pipe( conn.dest( Config.ftp.location ) );
+			fs.src( glob, { buffer: false } )
+				.pipe( conn.dest( Config.ftp.location ) )
+				.on( "end", function() {
+					del( [ "./documental.projects.json" ] );
+				} );
 		}
 
 
@@ -115,4 +119,4 @@
 
 	}
 
-} )( documentalCore.utils, documentalCore.state, config, vftp, vfs, map, file );
+} )( documentalCore.utils, documentalCore.state, config, vftp, vfs, map, file, del );

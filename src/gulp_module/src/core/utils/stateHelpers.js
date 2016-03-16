@@ -15,7 +15,7 @@
 
 ( function( Utils, State ) {
 
-	Utils.addMemberToSourceMap = function ( updatemap, name, docu, src ) {
+	Utils.addMemberToSourceMap = function ( updatemap, name, docu, src, file, location ) {
 		var memberpath = name.split( "." );
 		var islast = false;
 
@@ -29,6 +29,9 @@
 		if ( src ) {
 			updatemap[ "Source" ] = src;
 		}
+
+		updatemap[ "Documentation" ][ "file" ] = file;
+		updatemap[ "Documentation" ][ "loc" ] = location;
 
 	};
 

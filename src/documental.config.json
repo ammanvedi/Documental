@@ -1,0 +1,16 @@
+{
+  "projectName": "documental",
+  "useApp" : true,
+  "liveLoad" : false,
+  "readme" : "./node_modules/documental/README.md",
+  "verbose": false,
+  "port": 8099,
+  "ftp": {
+    "location" : "/mnt/cdn/test/amman/docs/data",
+    "htmlLocation": "/mnt/cdn/test/amman/docs/partials",
+    "server" : "cdn2fs.pulselive.com",
+    "username": "cdn",
+    "password": "xas23pon"
+  },
+  "ftpAuto" : false
+}

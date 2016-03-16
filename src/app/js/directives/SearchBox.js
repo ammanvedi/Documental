@@ -18,7 +18,7 @@ app.directive( 'searchBox', function () {
 				dataType: "json",
 				url: "data/" + scope.projname + "-autocomplete.json",
 				success: function ( data ) {
-					console.log( data );
+					console.log( "ataaaaa", data );
 					scope.methods = data;
 
 					$( '.ui.search' )

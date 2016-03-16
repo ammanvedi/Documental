@@ -1,0 +1,12 @@
+li[data-path*="prototype"] .easytree-title { color: red; !important }
+
+.constructorTag {
+    top: -4px;
+    position: relative;
+    font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
+}
+
+.returnsArrow {
+    top: 3px;
+    color: lightgray;
+}

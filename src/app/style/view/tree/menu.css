@@ -1,0 +1,17 @@
+menu-tree ul {
+    -webkit-box-shadow: inset -1px 0px 19px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset -1px 0px 19px -5px rgba(0,0,0,0.75);
+    box-shadow: inset -1px 0px 19px -5px rgba(0,0,0,0.75);
+}
+
+menu-tree ul:first-of-type {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+span.easytree-title {
+    font-size: 13px;
+    line-height: 158%;
+}
+

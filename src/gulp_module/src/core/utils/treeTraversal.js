@@ -122,7 +122,7 @@
 					return "this";
 					break;
 				case "Literal":
-					return "[ LITERAL ]";
+					return node.value;
 					break;
 				case "CallExpression":
 					return Utils.postOrderTraverse( node.callee.object ) + "." + Utils.postOrderTraverse( node.callee.property );

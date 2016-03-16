@@ -19,6 +19,7 @@ var vftp = require('vinyl-ftp');
 var vfs = require('vinyl-fs');
 var map = require('map-stream');
 var file = require('gulp-file');
+var del = require('del');
 
 marked.setOptions({
 	renderer: new marked.Renderer(),
@@ -58,6 +59,7 @@ try {
 		plugins: {},
 		utils: {},
 		state: {
+			file: false,
 			sourceMap: {},
 			commentsHash: {},
 			typeDefs: {},

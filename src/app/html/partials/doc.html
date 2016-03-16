@@ -1,6 +1,13 @@
 <div ng-controller="PulseDocController" id="PulseDocController">
 
     <div class="ui left vertical visible wide sidebar" style="overflow:hidden !important;">
+        <div class="ui menu" id="navmenu">
+
+            <a id="navlogo"></a>
+            <a id="navgit"></a>
+            <a id="navnpm"></a>
+
+        </div>
         <search-box pickedresult="chosenpath" projname="projectName" ></search-box>
         <menu-Tree jsonurl="{{jsonLocation}}" updateselected="check(path)" opensearchres="chosenpath"></menu-Tree>
     </div>
