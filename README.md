@@ -129,15 +129,13 @@ These files can now be consumed however you choose!
 
 build the gulp module from source
 
-<pre><code>user# cd src/gulp_module/
+<pre><code>user# cd src/
 user# npm install
-
-user# cd node_modules/documental/src
-user# gulp
-...
+user# gulp build-npm
+user# gulp --gulpfile test.gulpfile.js docs 
 </code></pre>
 
-you can now adjust gulp-module/gulpfile.js to point to the desired files and run the documentation task. Note; if you want to use the app when building from source, make sure you have built this also. The process is outlined below.
+you can now adjust test.gulpfile.js to point to the desired files and run the documentation task. Note; if you want to use the app when building from source, make sure you have built this also. The process is outlined below.
 
 ##### Source Structure
 
@@ -185,12 +183,12 @@ examples can be found in the already existing plugins.
 
 
 build the app code with gulp
-<pre><code>user# gulp
+<pre><code>user# gulp app
 </code></pre>
 The app will be built to the dist/ directory, JSON generated from the node module can be placed in the dist/data directory
 
 build the app code to the gulp module directory ( source ) 
-<pre><code>user# gulp build-dist
+<pre><code>user# gulp build-app-dist
 </code></pre>
 
 build the app code to a ftp location, defined in app/ftp.config.json

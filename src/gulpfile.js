@@ -130,6 +130,12 @@ gulp.task( 'npm-move-bower', function() {
         .pipe( gulp.dest( config.app.dist.npmRoot + "app/" ) )
 } );
 
+gulp.task('build-module-meta', function() {
+
+    return gulp.src( config.node.src.meta )
+        .pipe(gulp.dest( config.node.dist.root ));
+});
+
 gulp.task('build-module', [ 'build-module-meta' ], function() {
 
     return gulp.src( config.node.src.js )
@@ -137,15 +143,7 @@ gulp.task('build-module', [ 'build-module-meta' ], function() {
         .pipe(gulp.dest( config.node.dist.js ));
 });
 
-gulp.task('build-module-meta', function() {
-
-    return gulp.src( config.node.src.meta )
-        .pipe(gulp.dest( config.node.dist.root ));
-});
-
-
-gulp.task('app-default', [ 'scripts', 'style', 'html', 'index', 'data', 'img' ] );
-gulp.task( 'build-app-dist', [ 'app-default', 'npm-build', 'npm-move-bower', 'npm-build-data-dirty' ] );
-
+gulp.task('build-app', [ 'scripts', 'style', 'html', 'index', 'data', 'img' ] );
+gulp.task( 'build-app-dist', [ 'build-app', 'npm-build', 'npm-move-bower', 'npm-build-data-dirty' ] );
 gulp.task( 'build-npm', [ 'build-module', 'build-app-dist' ] );
 
