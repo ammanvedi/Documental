@@ -21,7 +21,6 @@
     background-size: contain;
     width: 130px;
     background-position: center;
-    margin-left: 10px;
 }
 #navgit
 {
@@ -30,7 +29,6 @@
     background-size: contain;
     width: 95px;
     background-position: center;
-    margin-left: 10px;
 }
 
 .easytree-container {
@@ -105,10 +103,11 @@ doc-view code {
 .searchboxholder
 {
     width: 100%;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     text-align: center;
     position:absolute;
+    background-color: #344052;
 }
 
 .searchboxholder:first-child{

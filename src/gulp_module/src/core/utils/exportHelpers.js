@@ -1,10 +1,9 @@
-/**
- * Created by ammanvedi on 25/01/2016.
- */
-
 
 ( function( Utils, State, config ) {
 
+	/**
+	 * export JSON data files to json
+	 */
 	Utils.exportDataToJSON = function () {
 
 		var outputs = [];
@@ -12,9 +11,6 @@
 		if( config.jsonOutput ) {
 			outputs.push( process.cwd() + '/' + config.jsonOutput  );
 		}
-
-		//var outPath = config && config.jsonOutput && !config.useApp ? process.cwd() + '/' + config.jsonOutput  : process.cwd() + '/';
-		//var outPath = config && config.jsonOutput && !config.useApp ? process.cwd() + '/' + config.jsonOutput  : State.docAppPath;
 
 		if( config.useApp ) {
 			outputs.push( State.docAppPath );
@@ -36,8 +32,6 @@
 			fs.writeFileSync( files[ 1 ], Utils.getSourceMap() );
 			fs.writeFileSync( files[ 2 ], Utils.getAutocomplete() );
 		} );
-
-
 
 		Utils.ftp.initiate( files );
 

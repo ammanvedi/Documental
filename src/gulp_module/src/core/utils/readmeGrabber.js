@@ -2,8 +2,9 @@
 
 ( function( Utils, State, config, fs, mkd ) {
 
-
-
+	/**
+	 * attempt to get the readme file and if successful then parse it
+	 */
 	Utils.getReadme = function() {
 		var _self = this;
 
@@ -23,7 +24,11 @@
 		}
 	};
 
-
+	/**
+	 * take md text from file and attempt to generate html from it, then write the file
+	 *
+	 * @param {string} data markdown text from file
+	 */
 	Utils.parseReadme = function( data ) {
 
 		try{
@@ -37,6 +42,11 @@
 		}
 	};
 
+	/**
+	 * Write the readme to the local app directory
+	 *
+	 * @param {string} html markup string representing readme contents
+	 */
 	Utils.writeReadme = function( html ) {
 
 		Utils.logStage( 'Writing readme' );
@@ -54,10 +64,12 @@
 
 	};
 
+	/**
+	 * TODO - implement placeholder readme
+	 */
 	Utils.generateReadme = function() {
 
 		Utils.logError( 'Generating placeholder readme ' );
-
 	};
 
 

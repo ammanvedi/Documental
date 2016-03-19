@@ -5,12 +5,24 @@
 
 ( function( Utils, State, cfg) {
 
+
 	Utils.appBuilder = ( function( g, shell, bs, opn, rs ) {
 
 		var builder = {};
 
 		var built = false;
 
+		/**
+		 * @namespace Utils.appBuilder
+		 */
+
+		/**
+		 * define tasks to be run + launch gulp to start app build
+		 *
+		 * @param {string} serverRoot where to point the server on load ( relative url )
+		 * @param {string} projectName name of the project being built
+		 * @param {integer} port local port on which to deploy the server
+		 */
 
 		builder.build = function( serverRoot, projectName, port ) {
 

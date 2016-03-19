@@ -6,9 +6,7 @@
                     <div class="content">
                         {{docstructure.title}}
 
-                        <a class="ui olive label constructorTag" ng-if="( docstructure.Documentation.tags | filter:{ title: 'constructor' } ).length > 0">
-                            Constructor
-                        </a>
+
 
                         <div class="sub header">{{docstructure.path}}</div>
                     </div>
@@ -25,6 +23,21 @@
                 <h5 style="margin-top: -9px;" ng-if="( docstructure.Documentation.tags | filter:{ title: 'returns' } )[0]">
                     {{( docstructure.Documentation.tags | filter:{ title: 'returns' } )[0].description }}
                 </h5>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="column">
+                <a class="ui blue label" ng-if="docstructure.Documentation.file && docstructure.Documentation.loc">
+                    {{docstructure.Documentation.file}}
+                    <div class="detail">
+                        {{docstructure.Documentation.loc.start.line}}
+                    </div>
+                </a>
+                <a class="ui olive label constructorTag" ng-if="( docstructure.Documentation.tags | filter:{ title: 'constructor' } ).length > 0">
+                    Constructor
+                </a>
 
             </div>
         </div>

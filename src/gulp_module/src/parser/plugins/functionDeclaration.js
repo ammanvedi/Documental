@@ -5,6 +5,12 @@
 
 ( function( Plugins, Utils, State ) {
 
+	/**
+	 * identify functions declared as static functions
+	 *
+	 * @param {spidermonkeyASTNode} node node to parse
+	 * @returns {pluginResult} the result of parse
+	 */
 	Plugins.functionDeclaration = function( node ) {
 
 		var sourceStart, sourceStop, rightside, terminal, name;

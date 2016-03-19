@@ -1,10 +1,15 @@
-/**
- * Created by ammanvedi on 25/01/2016.
- */
-
 
 ( function( Plugins, Utils, State, Constants ) {
 
+	/**
+	 * the core function that walks the spidermonkey ast of a source file
+	 *
+	 * @param {object} file the gulp file object
+	 * @param {string} sourceString the source file text
+	 * @param {object} acornInstance the npm acorn instance
+	 * @param {object} walk the acorn walk npm instance
+	 * @returns {string} source string
+	 */
 	Utils.determineFunctions = function ( file,  sourceString, acornInstance, walk ) {
 
 		State.file = file;
@@ -48,7 +53,14 @@
 		return sourceString;
 	};
 
-	Utils.processResult = function( pluginResult, sourceString, fname  ) {
+	/**
+	 * process the result of the plugin and add it to the source map + autocomplete
+	 * objects
+	 *
+	 * @param {pluginResult} pluginResult the plugin result to deal with
+	 * @param {string} sourceString full source string of file
+	 */
+	Utils.processResult = function( pluginResult, sourceString ) {
 		if( pluginResult ) {
 			var body = sourceString.substring( pluginResult.sourceStart, pluginResult.sourceStop );
 			var par = Utils.paramsToStringRepresentation( Utils.getSimpleParameters( pluginResult.rightside ) );

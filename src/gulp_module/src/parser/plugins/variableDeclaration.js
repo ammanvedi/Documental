@@ -1,10 +1,12 @@
-/**
- * Created by ammanvedi on 25/01/2016.
- */
-
 
 ( function( Plugins, Utils, State ) {
 
+	/**
+	 * identify functions declared as vars
+	 *
+	 * @param {spidermonkeyASTNode} node node to parse
+	 * @returns {pluginResult} the result of parse
+	 */
 	Plugins.variableDeclaration = function( node ) {
 
 		var sourceStart, sourceStop, rightside, terminal, name;

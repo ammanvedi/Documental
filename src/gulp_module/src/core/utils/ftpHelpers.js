@@ -1,9 +1,14 @@
 
 ( function( Utils, State, Config, vftp, fs, map, Gfile, del ) {
 
-
 	Utils.ftp = {};
 
+	/**
+	 * initiate the ftp process, entering this function will check if ftp is enabled
+	 * and if so initiate the upload
+	 *
+	 * @param {Array.<string>} files list of files which should be uploaded
+	 */
 	Utils.ftp.initiate = function( files ) {
 
 		var requiredProps = [ "server", "location", "username", "password" ];
@@ -21,6 +26,14 @@
 		}
 	};
 
+	/**
+	 * upload ftp file, can be used to upload source files ( provide file param )
+	 * or provide glob in order to upload projects.json
+	 * TODO - this function needs to be more general
+	 *
+	 * @param {Array.<string>|boolean} files files to upload
+	 * @param {Array.<string>} [glob] location of the doc.proj.json
+	 */
 	Utils.ftp.upload = function( files, glob ) {
 
 		Utils.logStage( "Uploading to FTP Location.." );
@@ -53,6 +66,12 @@
 
 	};
 
+	/**
+	 * check the documental.projects.json on the server and determine if an update is
+	 * needed
+	 *
+	 * @param {object} connection the ftp connection that has already been established
+	 */
 	Utils.ftp.checkProjectConfig = function( connection ) {
 		connection.src( Config.ftp.location + "/documental.projects.json" ).pipe( map( function( file, cb ) {
 
@@ -78,6 +97,12 @@
 		} ) );
 	};
 
+	/**
+	 * check the projects array for needed updates
+	 *
+	 * @param {object} connection the ftp connection that has already been established
+	 * @param {Array.<object>} projects project information
+	 */
 	Utils.ftp.updateProjectConfig = function( connection, projects ) {
 
 		var needsUpdate = true;

@@ -1,0 +1,58 @@
+{
+  "name": "documental",
+  "version": "0.4.6",
+  "description": "A documentation auto generator.",
+  "author": "Amman Vedi <amman.vedi@pulselive.com>",
+  "contributors": [
+    {
+      "name": "Amman Vedi",
+      "email": "amman.vedi@pulselive.com"
+    }
+  ],
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ammanvedi/Documental/"
+  },
+  "bugs": {
+    "url": "https://github.com/ammanvedi/Documental/issues"
+  },
+  "keywords": [
+    "Documantation",
+    "Documental",
+    "jsDoc",
+    "generator",
+    "auto",
+    "autogenerator",
+    "static"
+  ],
+  "dependencies": {
+    "acorn": "*",
+    "browser-sync": "^2.11.1",
+    "cli-color": "^1.1.0",
+    "del": "^2.2.0",
+    "doctrine": "*",
+    "fs": "*",
+    "gulp": "*",
+    "gulp-bower": "0.0.11",
+    "gulp-concat": "^2.6.0",
+    "gulp-file": "*",
+    "gulp-modify": "*",
+    "gulp-open": "^1.0.0",
+    "gulp-shell": "^0.5.1",
+    "marked": "^0.3.5",
+    "openurl": "^1.1.1",
+    "run-sequence": "^1.1.5",
+    "shell": "*",
+    "vinyl-fs": "^2.3.4",
+    "vinyl-ftp": "^0.4.5",
+    "walk-ast": "*",
+    "gulp-file": "^0.2.0",
+    "map-stream": "0.0.6",
+    "through2": "^2.0.1"
+  },
+  "license": "MIT",
+  "devDependencies": {
+
+  }
+}
